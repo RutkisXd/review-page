@@ -1,0 +1,152 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Vilnius"
+    },
+    {
+      "id": 2,
+      "name": "Kaunas"
+    },
+    {
+      "id": 3,
+      "name": "Klaipėda"
+    }
+  ],
+  "restaurants": [
+    {
+      "id": 1,
+      "name": "Ertlio Namas",
+      "cityId": 1,
+      "address": "Stiklių g. 6, Vilnius 01131"
+    },
+    {
+      "id": 2,
+      "name": "Monte Pacis",
+      "cityId": 1,
+      "address": "T. Kosciuškos g. 11, Trakai 21104"
+    },
+    {
+      "id": 3,
+      "name": "Gastrobaras",
+      "cityId": 2,
+      "address": "Vilniaus g. 34, Kaunas 44280"
+    },
+    {
+      "id": 4,
+      "name": "Soulbox",
+      "cityId": 2,
+      "address": "Savanorių pr. 66, Kaunas 44254"
+    },
+    {
+      "id": 5,
+      "name": "19 Nykštukų",
+      "cityId": 3,
+      "address": "Turgaus g. 1, Klaipėda 91247"
+    },
+    {
+      "id": 6,
+      "name": "Meat Lovers Pub",
+      "cityId": 3,
+      "address": "Turgaus g. 21, Klaipėda 91247"
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "restaurantId": 1,
+      "title": "Authentic Lithuanian food",
+      "body": "Ertlio Namas is the perfect place to try traditional Lithuanian dishes. The atmosphere is cozy and the food is delicious."
+    },
+    {
+      "id": 2,
+      "restaurantId": 2,
+      "title": "Fine dining in a historic setting",
+      "body": "Monte Pacis is a must-visit for anyone looking for an upscale dining experience. The restaurant is housed in a beautiful historic building and the food is top-notch."
+    },
+    {
+      "id": 3,
+      "restaurantId": 3,
+      "title": "Great food, even better cocktails",
+      "body": "Gastrobaras is a hidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
+    },
+    {
+      "id": 4,
+      "restaurantId": 4,
+      "title": "Burgers and craft beer",
+      "body": "Soulbox is the perfect spot for a casual meal and drinks with friends. The burgers are fantastic and the craft beer selection is impressive."
+    },
+    {
+      "id": 5,
+      "restaurantId": 1,
+      "title": "Authentic Lithuanian food",
+      "body": "Ertlio Namas is the perfect place to try traditional Lithuanian dishes. The atmosphere is cozy and the food is delicious."
+    },
+    {
+      "id": 6,
+      "restaurantId": 2,
+      "title": "Fine dining in a historic setting",
+      "body": "Monte Pacis is a must-visit for anyone looking for an upscale dining experience. The restaurant is housed in a beautiful historic building and the food is top-notch."
+    },
+    {
+      "id": 7,
+      "restaurantId": 3,
+      "title": "Great food, even better cocktails",
+      "body": "Gastrobaras is a hidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
+    },
+    {
+      "id": 8,
+      "restaurantId": 4,
+      "title": "Burgers and craft beer",
+      "body": "Soulbox is the perfect spot for a casual meal and drinks with friends. The burgers are fantastic and the craft beer selection is impressive."
+    },
+    {
+      "restaurantId": 4,
+      "title": "fdfdf",
+      "body": "dfdfdf",
+      "id": 9
+    },
+    {
+      "restaurantId": 4,
+      "title": "fdfdf",
+      "body": "dfdfdf",
+      "id": 10
+    },
+    {
+      "restaurantId": 3,
+      "title": "fdfdf",
+      "body": "dsdsd",
+      "id": 11
+    },
+    {
+      "restaurantId": 4,
+      "title": "bbbb",
+      "body": "sdsd",
+      "id": 12
+    },
+    {
+      "restaurantId": "4",
+      "title": "sdsdsd",
+      "body": "sdsdsd",
+      "id": 13
+    },
+    {
+      "restaurantId": "3",
+      "title": "sdfsdfsfsdf",
+      "body": "sdfsdfdsfdsf",
+      "id": 16
+    },
+    {
+      "restaurantId": "6",
+      "title": "asdad",
+      "body": "asdasdad",
+      "id": 19
+    },
+    {
+      "restaurantId": "1",
+      "title": "bbbbbb",
+      "body": "bbbbbbbb",
+      "id": 21
+    }
+  ]
+}
