@@ -14,7 +14,7 @@ export default function CityList() {
 
   return (
     <div>
-      <h2>Top 4 Cities</h2>
+      <h2 className='page-header'>Top 4 Cities</h2>
       <ul>
         {cities.map(city => (
           <li key={city.id}>

@@ -8,12 +8,11 @@ export default function NewestRestaurants() {
     fetch('http://localhost:3000/restaurants/?_sort=id&_limit=5')
       .then(response => response.json())
       .then(data => setNewRestaurants(data))
-      .catch(error => console.error('Error fetching new restaurants:', error));
   }, []);
 
   return (
     <div>
-      <h2>Newest Restaurants</h2>
+      <h2 className='page-header'>Newest Restaurants</h2>
       <ul>
         {newRestaurants.map(restaurant => (
           <li key={restaurant.id}>
