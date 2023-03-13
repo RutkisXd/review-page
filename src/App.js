@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './Components/Navigation';
 import RestaurantList from './Pages/ResutantsPage';
 import ReviewsPage from './Pages/Reviews';
+import SearchResults from './Pages/SearchResults';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
           <Route path="/restaurants/:restaurantId" element={<RestaurantDetailPage />} />
           <Route path="/restaurants?:cityId" element={<RestaurantList />} />
           <Route path='/reviews' element={<ReviewsPage />} />
-          <Route path='/search' element={<ReviewsPage />}/>
+          <Route path='/search/:keyword' element={<SearchResults />}/>
         </Routes>
       </div>
     </Router>

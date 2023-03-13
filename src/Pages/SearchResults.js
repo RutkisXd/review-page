@@ -1,28 +1,44 @@
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
 
-function SearchResults() {
-  const { searchTerm } = useParams();
+function SearchComponent() {
   const [restaurants, setRestaurants] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const { keyword } = useParams();
 
   useEffect(() => {
-    const fetchRestaurants = async () => {
-      const response = await fetch(`http://localhost:3000/restaurants?q=${searchTerm}`);
-      const data = await response.json();
-      setRestaurants(data);
-    };
-    fetchRestaurants();
-  }, [searchTerm]);
+    // Fetch restaurants
+    fetch(`http://localhost:3000/restaurants?q=${keyword}`)
+      .then((response) => response.json())
+      .then((data) => setRestaurants(data));
+
+    // Fetch reviews
+    fetch(`http://localhost:3000/reviews?q=${keyword}`)
+      .then((response) => response.json())
+      .then((data) => setReviews(data));
+  }, [keyword]);
 
   return (
     <div>
+      <h2>Search Results for "{keyword}"</h2>
+
+      <h3>Restaurants</h3>
       <ul>
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
-            <a href={`/restaurants/${restaurant.id}`}>
-              <h3>{restaurant.name}</h3>
-              <p>{restaurant.description}</p>
-            </a>
+            <Link to={`/restaurant/${restaurant.id}`}>{restaurant.name} </Link> 
+            - {restaurant.address}
+          </li>
+        ))}
+      </ul>
+
+      <h3>Reviews</h3>
+      <ul>
+        {reviews.map((review) => (
+          <li key={review.id}>
+              <h3>{review.title} </h3>
+              <p>{review.body} </p>
+              Restaurant: <Link to={`/restaurant/${review.restaurantId}`}> {restaurants.find((r) => r.id === review.restaurantId)?.name} </Link> 
           </li>
         ))}
       </ul>
@@ -30,4 +46,4 @@ function SearchResults() {
   );
 }
 
-export default SearchResults;
+export default SearchComponent;
