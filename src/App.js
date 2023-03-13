@@ -18,6 +18,7 @@ function App() {
           <Route path="/restaurants/:restaurantId" element={<RestaurantDetailPage />} />
           <Route path="/restaurants?:cityId" element={<RestaurantList />} />
           <Route path='/reviews' element={<ReviewsPage />} />
+          <Route path='/search' element={<ReviewsPage />}/>
         </Routes>
       </div>
     </Router>

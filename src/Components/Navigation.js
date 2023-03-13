@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Navigation() {
-  const handleSearchSubmit = (event) => {
-    event.preventDefault();
-    // handle search
-  };
+  const [keyword, setKeyword] = useState('');
+
+  function keywordHandler(event) {
+    setKeyword(event.target.value);
+  }
 
   return (
     <nav>
@@ -20,10 +21,8 @@ export default function Navigation() {
           <Link to="/reviews">Reviews</Link>
         </li>
       </ul>
-      <form onSubmit={handleSearchSubmit}>
-        <input type="text" placeholder="Search" />
-        <button type="submit">Search</button>
-      </form>
+      <input type='text' name='keyword' onChange={keywordHandler} value={keyword} placeholder='search...'></input>
+      <Link to={'/search/' + keyword}><button>Search by keyword</button></Link>
     </nav>
   );
 }
