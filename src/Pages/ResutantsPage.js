@@ -142,7 +142,7 @@ export default function RestaurantList() {
         {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
             <Link to={`/restaurants/${restaurant.id}`}>
-              <img src={restaurant.photo} alt={`Photo of ${restaurant.name}`} />
+              <img src={restaurant.photo} alt={`${restaurant.name}`} />
               <h3>{restaurant.name}</h3>
               <p>{restaurant.address}</p>
             </Link>

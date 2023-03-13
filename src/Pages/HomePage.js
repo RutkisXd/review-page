@@ -16,7 +16,7 @@ export default function HomePage() {
         <RatedRestaurants />
         <NewestRestaurants />
 
-        <div className='view-all-restaurants'>
+        <div className='view-all-restaurants-wrapper'>
           <h3 className='view-all-header'>Would like to see more?</h3>
           <p className='view-all-p'>Feel free to look at our all restaurnts list!</p>
           <Link to='/restaurants'><button>View all</button></Link>

@@ -14,7 +14,8 @@ export default function RatedRestaurants() {
             .then(reviews => ({ ...restaurant, reviews: reviews.length }))
         );
         Promise.all(promises).then(restaurantsWithReviews => {
-          // Sort by number of reviews in descending order
+          // Filter restaurants with more than 0 reviews and sort by number of reviews in descending order
+          restaurantsWithReviews = restaurantsWithReviews.filter(restaurant => restaurant.reviews > 0);
           restaurantsWithReviews.sort((a, b) => b.reviews - a.reviews);
           setRatedRestaurants(restaurantsWithReviews);
         });
