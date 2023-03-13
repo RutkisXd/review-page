@@ -22,7 +22,7 @@ export default function HomePage() {
         <div className='view-all-restaurants-wrapper'>
           <h3 className='page-header'>Would like to see more?</h3>
           <p className='page-paragraph'>Feel free to look at our all restaurnts list!</p>
-          <Link to='/restaurants'><button>View all</button></Link>
+          <Link to='/restaurants'><button className='btn'>View all</button></Link>
         </div>
 
     </div>

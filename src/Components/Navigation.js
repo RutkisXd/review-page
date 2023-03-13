@@ -24,7 +24,7 @@ export default function Navigation() {
       </ul>
       <div className='search-input'>
         <input type='text' name='keyword' onChange={keywordHandler} value={keyword} placeholder='search...'></input>
-        <Link to={'/search/' + keyword}><button>Search by keyword</button></Link>
+        <Link to={'/search/' + keyword}><button className='btn'>Search</button></Link>
       </div>
     </nav>
   );

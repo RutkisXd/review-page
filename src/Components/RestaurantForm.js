@@ -37,7 +37,7 @@ export default function RestaurantForm({ cities, onSubmit, initialData }) {
         Photo URL:
         <input type="text" value={photo} onChange={(event) => setPhoto(event.target.value)} />
       </label>
-      <button type="submit">{initialData ? 'Update' : 'Add'}</button>
+      <button className='btn' type="submit">{initialData ? 'Update' : 'Add'}</button>
     </form>
   );
 }

@@ -111,20 +111,6 @@
       "cityId": 1,
       "address": "3127 Fillmore St, San Francisco, CA 94123",
       "photo": "https://www.ateliercrenn.com/"
-    },
-    {
-      "id": 11,
-      "name": "L'Atelier de Joel Robuchon",
-      "cityId": 1,
-      "address": "85 10th Ave, New York, NY 10011",
-      "photo": "https://www.latelier-newyork.com/"
-    },
-    {
-      "id": 12,
-      "name": "Sushi Yasuda",
-      "cityId": 1,
-      "address": "204 E 43rd St, New York, NY 10017",
-      "photo": "https://www.sushiyasuda.com/"
     }
   ],
   "reviews": [

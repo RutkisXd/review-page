@@ -76,18 +76,21 @@ export default function ReviewsPage() {
             <li className='review-item' key={review.id}>
                 {editReviewId === review.id ? (
                 <>
+                <div className='save-review'>
                     <p>Title: <input type="text" name="title" value={editedReview.title} onChange={handleChange} /></p>
                     <p>Body: <input type="text" name="body" value={editedReview.body} onChange={handleChange} /></p>
-                    <button onClick={() => handleSaveReview(review.id)}>Save Review</button>
+                    <button className='btn' onClick={() => handleSaveReview(review.id)}>Save Review</button>
+                </div>
+
                 </>
                 ) : (
-                <>
+                <div className='review-card'>
                     <p>Title: {review.title}</p>
                     <p>Body: {review.body}</p>
                     <p>Restaurant: <Link to={`/restaurants/${review.restaurantId}`}>{review.restaurantName}</Link></p>
-                    <button onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
-                    <button onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
-                </>
+                    <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
+                    <button className='btn' onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
+                </div>
                 )}
             </li>
             ))}

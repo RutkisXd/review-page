@@ -28,7 +28,7 @@ export default function CitySelector() {
         </select>
         {selectedCity && (
           <Link to={`/restaurants?cityId=${cities.find(city => city.name === selectedCity).id}`}>
-            <button>Search</button>
+            <button className='btn'>Search</button>
           </Link>
         )}
       </div>

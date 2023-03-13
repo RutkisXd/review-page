@@ -81,10 +81,9 @@ function RestaurantList() {
       <h3>{cityId ? `Restaurants in ${getCityName(cityId)}` : 'All Restaurants'}</h3>
   
       <RestaurantForm
-        editingRestaurantId={editingRestaurantId}
         cities={cities}
-        onSave={handleSave}
-        onCancel={handleCancel}
+        onSubmit={handleSave}
+        initialData={editingRestaurantId ? restaurants.find(restaurant => restaurant.id === editingRestaurantId) : null}
       />
   
       <ul className='restaurants-list'>
@@ -95,8 +94,8 @@ function RestaurantList() {
               <h3>{restaurant.name}</h3>
               <p>{restaurant.address}</p>
             </Link>
-            <button onClick={() => handleDelete(restaurant.id)}>Delete</button>
-            <button onClick={() => handleEdit(restaurant)}>Edit</button>
+            <button className='btn' onClick={() => handleDelete(restaurant.id)}>Delete</button>
+            <button className='btn' onClick={() => handleEdit(restaurant.id)}>Edit</button>
           </li>
         ))}
       </ul>
@@ -104,4 +103,4 @@ function RestaurantList() {
   );
 }
 
-export default RestaurantList;
+export default RestaurantList

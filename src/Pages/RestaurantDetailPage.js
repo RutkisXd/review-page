@@ -111,8 +111,8 @@ export default function RestaurantDetails() {
       <li key={review.id}>
         <strong>{review.title}</strong>
         <p>{review.body}</p>
-        <button onClick={() => handleDeleteReview(review.id)}>Delete</button>
-        <button onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+        <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete</button>
+        <button className='btn' onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
       </li>
     ))}
   </ul>
@@ -131,8 +131,8 @@ export default function RestaurantDetails() {
           <textarea value={editReviewId ? editReviewBody : newReviewBody} onChange={editReviewId ? handleEditReviewBodyChange : handleNewReviewBodyChange} />
         </label>
         <br />
-        <button type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
-        {editReviewId && <button type="button" onClick={handleEditReviewCancel}>Cancel</button>}
+        <button className='btn' type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
+        {editReviewId && <button className='btn' type="button" onClick={handleEditReviewCancel}>Cancel</button>}
       </form>
     </div>
     </div>
