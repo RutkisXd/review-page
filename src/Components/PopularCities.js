@@ -8,11 +8,8 @@ export default function CityList() {
     fetch('http://localhost:3000/cities')
       .then(response => response.json())
       .then(data => {
-        setCities(data.slice(0, 4)); // Slice the first 4 elements of the data array
+        setCities(data.slice(0, 4));
       })
-      .catch(error => {
-        console.error('Error fetching city data:', error);
-      });
   }, []);
 
   return (
