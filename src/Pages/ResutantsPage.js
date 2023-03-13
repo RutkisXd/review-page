@@ -90,10 +90,11 @@ export default function RestaurantList() {
     setNewRestaurantPhoto(restaurant.photo);
   }
 
+  console.log(cityId)
+
   return (
     <div>
       <h3>{cityId ? `Restaurants in ${getCityName(cityId)}` : 'All Restaurants'}</h3>
-
   
       <form onSubmit={handleSubmit}>
         <label>

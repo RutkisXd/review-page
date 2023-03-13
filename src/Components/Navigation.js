@@ -16,6 +16,9 @@ export default function Navigation() {
         <li>
           <Link to="/restaurants">Restaurants</Link>
         </li>
+        <li>
+          <Link to="/reviews">Reviews</Link>
+        </li>
       </ul>
       <form onSubmit={handleSearchSubmit}>
         <input type="text" placeholder="Search" />

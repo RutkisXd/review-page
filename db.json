@@ -2,128 +2,167 @@
   "cities": [
     {
       "id": 1,
-      "name": "Vilnius"
+      "name": "New York City"
     },
     {
       "id": 2,
-      "name": "Kaunas"
+      "name": "Los Angeles"
     },
     {
       "id": 3,
-      "name": "Klaipėda"
+      "name": "Chicago"
+    },
+    {
+      "id": 4,
+      "name": "Houston"
+    },
+    {
+      "id": 5,
+      "name": "Phoenix"
+    },
+    {
+      "id": 6,
+      "name": "Philadelphia"
+    },
+    {
+      "id": 7,
+      "name": "San Antonio"
+    },
+    {
+      "id": 8,
+      "name": "San Diego"
+    },
+    {
+      "id": 9,
+      "name": "Dallas"
+    },
+    {
+      "id": 10,
+      "name": "San Jose"
     }
   ],
   "restaurants": [
     {
       "id": 1,
-      "name": "Ertlio Namas",
-      "cityId": 3,
-      "address": "Stiklių g. 7, Vilnius 01131"
+      "name": "La Colombe",
+      "cityId": 1,
+      "address": "400 Lafayette St, New York, NY 10003",
+      "photo": "https://www.lacolombe.com/pages/locations/lafayette"
     },
     {
       "id": 2,
-      "name": "Monte Pacis",
-      "cityId": 1,
-      "address": "T. Kosciuškos g. 11, Trakai 21104"
+      "name": "Bestia",
+      "cityId": 2,
+      "address": "2121 E 7th Pl, Los Angeles, CA 90021",
+      "photo": "https://bestiala.com/"
     },
     {
       "id": 3,
-      "name": "Gastrobaras",
-      "cityId": 2,
-      "address": "Vilniaus g. 34, Kaunas 44280"
+      "name": "Girl & the Goat",
+      "cityId": 3,
+      "address": "809 W Randolph St, Chicago, IL 60607",
+      "photo": "https://www.girlandthegoat.com/"
     },
     {
       "id": 4,
-      "name": "Soulbox",
-      "cityId": 2,
-      "address": "Savanorių pr. 66, Kaunas 44254"
+      "name": "Saison",
+      "cityId": 1,
+      "address": "1529 Mission St, San Francisco, CA 94103",
+      "photo": "https://saisonsf.com/"
     },
     {
       "id": 5,
-      "name": "19 Nykštukų",
-      "cityId": 3,
-      "address": "Turgaus g. 1, Klaipėda 91247"
+      "name": "Taco Maria",
+      "cityId": 2,
+      "address": "3313 Hyland Ave, Costa Mesa, CA 92626",
+      "photo": "https://www.tacomaria.com/"
     },
     {
       "id": 6,
-      "name": "Meat Lovers Pub",
+      "name": "Alinea",
       "cityId": 3,
-      "address": "Turgaus g. 21, Klaipėda 91247"
+      "address": "1723 N Halsted St, Chicago, IL 60614",
+      "photo": "https://www.alinearestaurant.com/"
     },
     {
-      "name": "bbbb",
-      "address": "bbbbb",
+      "id": 7,
+      "name": "Eleven Madison Park",
+      "cityId": 1,
+      "address": "11 Madison Ave, New York, NY 10010",
+      "photo": "https://www.elevenmadisonpark.com/"
+    },
+    {
+      "id": 8,
+      "name": "Vespertine",
+      "cityId": 2,
+      "address": "3599 Hayden Ave, Culver City, CA 90232",
+      "photo": "https://vespertine.la/"
+    },
+    {
+      "id": 9,
+      "name": "Giant",
       "cityId": 3,
-      "photo": "bbbbb",
-      "id": 7
+      "address": "3209 W Armitage Ave, Chicago, IL 60647",
+      "photo": "https://www.giantrestaurant.com/"
+    },
+    {
+      "id": 10,
+      "name": "Atelier Crenn",
+      "cityId": 1,
+      "address": "3127 Fillmore St, San Francisco, CA 94123",
+      "photo": "https://www.ateliercrenn.com/"
+    },
+    {
+      "id": 11,
+      "name": "L'Atelier de Joel Robuchon",
+      "cityId": 1,
+      "address": "85 10th Ave, New York, NY 10011",
+      "photo": "https://www.latelier-newyork.com/"
+    },
+    {
+      "id": 12,
+      "name": "Sushi Yasuda",
+      "cityId": 1,
+      "address": "204 E 43rd St, New York, NY 10017",
+      "photo": "https://www.sushiyasuda.com/"
     }
   ],
   "reviews": [
     {
       "id": 1,
       "restaurantId": 1,
-      "title": "Authentic Lithuanian food",
-      "body": "Ertlio Namas is the perfect place to try traditional Lithuanian dishes. The atmosphere is cozy and the food is delicious."
+      "title": "Excellent food and service",
+      "body": "I had an amazing experience at Le Bernardin. The food was exquisite and the service was top-notch. Highly recommend!"
     },
     {
       "id": 2,
       "restaurantId": 2,
-      "title": "Fine dining in a historic setting",
-      "body": "Monte Pacis is a must-visit for anyone looking for an upscale dining experience. The restaurant is housed in a beautiful historic building and the food is top-notch."
+      "title": "Best meal of my life",
+      "body": "Spago is simply incredible. Every dish was a work of art, and the flavors were out of this world. I will never forget this meal."
     },
     {
       "id": 3,
       "restaurantId": 3,
-      "title": "Great food, even better cocktails",
-      "body": "Gastrobaras is a dsdsdsdhidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
+      "title": "Incredible dining experience",
+      "body": "Alinea is a true culinary masterpiece. The creativity and attention to detail in each dish is mind-blowing. Highly recommend!"
     },
     {
       "id": 4,
-      "restaurantId": 4,
-      "title": "Burgers and craft beer",
-      "body": "Soulbox is the perfect spot for a casual meal and drinks with friends. The burgers are fantastic and the craft beer selection is impressive."
+      "restaurantId": 1,
+      "title": "Absolutely delicious",
+      "body": "Le Bernardin blew me away with their seafood dishes. Each dish was expertly prepared and bursting with flavor. Can't wait to go back!"
     },
     {
       "id": 5,
-      "restaurantId": 1,
-      "title": "Authentic Lithuanian food",
-      "body": "Ertlio Namas is the perfect place to try traditional Lithuanian dishes. The atmosphere is cozy and the food is delicious."
+      "restaurantId": 2,
+      "title": "Amazing atmosphere",
+      "body": "The atmosphere at Spago is so chic and sophisticated. I felt like I was dining in a movie. And the food was just as amazing as the setting."
     },
     {
       "id": 6,
-      "restaurantId": 2,
-      "title": "Fine dining in a historic setting",
-      "body": "Monte Pacis is a must-visit for anyone looking for an upscale dining experience. The restaurant is housed in a beautiful historic building and the food is top-notch."
-    },
-    {
-      "id": 7,
       "restaurantId": 3,
-      "title": "Great food, even better cocktails",
-      "body": "Gastrobaras is a hidden gem in dsdsdsdKaunas. The food is amazing, but don't miss out on the creative cocktails!"
-    },
-    {
-      "id": 8,
-      "restaurantId": 4,
-      "title": "Burgers and craft beer",
-      "body": "Soulbox is the perfect spot for a casual meal and drinks with friends. The burgers are fantastic and the craft beer selection is impressive."
-    },
-    {
-      "restaurantId": 4,
-      "title": "bbbb",
-      "body": "sdsd",
-      "id": 12
-    },
-    {
-      "restaurantId": "4",
-      "title": "sdsdsd",
-      "body": "sdsdsd",
-      "id": 13
-    },
-    {
-      "restaurantId": "6",
-      "title": "asdad",
-      "body": "asdasdad",
-      "id": 19
+      "title": "Unforgettable experience",
+      "body": "Alinea is more than just a meal, it's an experience. The attention to detail in every aspect of the dining experience is truly impressive."
     }
   ]
 }
