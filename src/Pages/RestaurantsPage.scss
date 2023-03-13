@@ -1,0 +1,14 @@
+.restaurants-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.restaurant-submit{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}

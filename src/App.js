@@ -1,12 +1,12 @@
 import HomePage from './Pages/HomePage';
 import RestaurantDetailPage from './Pages/RestaurantDetailPage';
-
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './Components/Navigation';
 import RestaurantList from './Pages/ResutantsPage';
 import ReviewsPage from './Pages/Reviews';
 import SearchResults from './Pages/SearchResults';
+import './App.scss'
 
 function App() {
   return (

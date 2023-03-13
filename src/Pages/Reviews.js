@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import '../Pages/Reviews.scss'
 
 export default function ReviewsPage() {
     const [reviews, setReviews] = useState([]);
@@ -68,11 +69,11 @@ export default function ReviewsPage() {
     }
 
     return (
-        <div>
+        <div className='reviews-wrapper'>
         <h2>All Reviews</h2>
-        <ul>
+        <ul className='reviews-list'>
             {reviews.map(review => (
-            <li key={review.id}>
+            <li className='review-item' key={review.id}>
                 {editReviewId === review.id ? (
                 <>
                     <p>Title: <input type="text" name="title" value={editedReview.title} onChange={handleChange} /></p>

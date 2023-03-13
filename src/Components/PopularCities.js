@@ -13,7 +13,7 @@ export default function CityList() {
   }, []);
 
   return (
-    <div>
+    <div className='top-4-cities'>
       <h2 className='page-header'>Top 4 Cities</h2>
       <ul>
         {cities.map(city => (

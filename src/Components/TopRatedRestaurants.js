@@ -22,7 +22,7 @@ export default function RatedRestaurants() {
   }, []);
 
   return (
-    <div>
+    <div className='top-rated-restaurants'>
       <h2 className='page-header'>Most Rated Restaurants</h2>
       <ul>
         {ratedRestaurants.map(restaurant => (

@@ -1,0 +1,18 @@
+.links-wrapper {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.links-wrapper a {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,5 +1,10 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React from "react";
+import { useEffect } from "react";   
+import { useState } from "react"; 
+import { useParams } from "react-router-dom";
+import RestaurantsList from "../Components/RestaurantsList";
+import ReviewsList from "../Components/ReviewsList";
+
 
 function SearchComponent() {
   const [restaurants, setRestaurants] = useState([]);
@@ -23,34 +28,15 @@ function SearchComponent() {
       ) : (
         <h2 className='page-header'>Sorry, with this keyword, there were no results.</h2>
       )}
-  
+
       {keyword ? (
         <>
-          <h3>Restaurants</h3>
-          <ul>
-            {restaurants.map((restaurant) => (
-              <li key={restaurant.id}>
-                <Link to={`/restaurant/${restaurant.id}`}>{restaurant.name} </Link> 
-                - {restaurant.address}
-              </li>
-            ))}
-          </ul>
-  
-          <h3>Reviews</h3>
-          <ul>
-            {reviews.map((review) => (
-              <li key={review.id}>
-                <h3>{review.title} </h3>
-                <p>{review.body} </p>
-                Restaurant: <Link to={`/restaurant/${review.restaurantId}`}> {restaurants.find((r) => r.id === review.restaurantId)?.name} </Link> 
-              </li>
-            ))}
-          </ul>
+          <RestaurantsList restaurants={restaurants} />
+          <ReviewsList reviews={reviews} restaurants={restaurants} />
         </>
       ) : null}
     </div>
   );
-  
 }
 
-export default SearchComponent;
+export default SearchComponent

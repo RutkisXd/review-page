@@ -11,7 +11,7 @@ export default function NewestRestaurants() {
   }, []);
 
   return (
-    <div>
+    <div className='newest-restaurants'>
       <h2 className='page-header'>Newest Restaurants</h2>
       <ul>
         {newRestaurants.map(restaurant => (
