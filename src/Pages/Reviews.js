@@ -20,8 +20,7 @@ export default function ReviewsPage() {
             return { ...review, restaurantName: restaurant ? restaurant.name : '' };
           });
           setReviews(reviewsWithRestaurantName);
-        }).catch(error => console.error(error))
-      }, []);
+        })}, []);
       
 
     function handleDeleteReview(id) {
@@ -30,10 +29,8 @@ export default function ReviewsPage() {
         })
         .then(response => response.json())
         .then(data => {
-            // Remove the deleted review from the state
             setReviews(reviews.filter(review => review.id !== id));
         })
-        .catch(error => console.error(error))
     }
 
     function handleEditReview(id, review) {
@@ -51,7 +48,6 @@ export default function ReviewsPage() {
         })
         .then(response => response.json())
         .then(data => {
-            // Update the edited review in the state
             setReviews(reviews.map(review => {
             if (review.id === id) {
                 return { ...review, ...editedReview };
@@ -59,11 +55,9 @@ export default function ReviewsPage() {
                 return review;
             }
             }));
-            // Clear the edited review state and edit review id state
             setEditedReview({ title: '', body: '' });
             setEditReviewId(null);
         })
-        .catch(error => console.error(error))
     }
 
     function handleChange(event) {

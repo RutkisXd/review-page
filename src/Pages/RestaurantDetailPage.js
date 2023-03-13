@@ -16,12 +16,10 @@ export default function RestaurantDetails() {
       fetch(`http://localhost:3000/restaurants/${restaurantId}`)
         .then(response => response.json())
         .then(data => setRestaurant(data))
-        .catch(error => console.error(error));
 
       fetch(`http://localhost:3000/reviews?restaurantId=${restaurantId}`)
         .then(response => response.json())
         .then(data => setReviews(data))
-        .catch(error => console.error(error));
     };
 
     fetchRestaurantDetails();
@@ -30,7 +28,6 @@ export default function RestaurantDetails() {
   const handleDeleteReview = (reviewId) => {
     fetch(`http://localhost:3000/reviews/${reviewId}`, { method: 'DELETE' })
       .then(() => setReviews(reviews.filter(review => review.id !== reviewId)))
-      .catch(error => console.error(error));
   };
 
   const handleNewReviewTitleChange = (event) => {
@@ -55,7 +52,6 @@ export default function RestaurantDetails() {
     })
       .then(response => response.json())
       .then(data => setReviews([...reviews, data]))
-      .catch(error => console.error(error));
     setNewReviewTitle('');
     setNewReviewBody('');
   };
@@ -96,7 +92,6 @@ export default function RestaurantDetails() {
         }));
         handleEditReviewCancel();
       })
-      .catch(error => console.error(error));
   };
 
   const handleEditReview = (reviewId, reviewTitle, reviewBody) => {

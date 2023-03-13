@@ -7,12 +7,10 @@ function SearchComponent() {
   const { keyword } = useParams();
 
   useEffect(() => {
-    // Fetch restaurants
     fetch(`http://localhost:3000/restaurants?q=${keyword}`)
       .then((response) => response.json())
       .then((data) => setRestaurants(data));
 
-    // Fetch reviews
     fetch(`http://localhost:3000/reviews?q=${keyword}`)
       .then((response) => response.json())
       .then((data) => setReviews(data));
@@ -20,30 +18,39 @@ function SearchComponent() {
 
   return (
     <div>
-      <h2>Search Results for "{keyword}"</h2>
-
-      <h3>Restaurants</h3>
-      <ul>
-        {restaurants.map((restaurant) => (
-          <li key={restaurant.id}>
-            <Link to={`/restaurant/${restaurant.id}`}>{restaurant.name} </Link> 
-            - {restaurant.address}
-          </li>
-        ))}
-      </ul>
-
-      <h3>Reviews</h3>
-      <ul>
-        {reviews.map((review) => (
-          <li key={review.id}>
-              <h3>{review.title} </h3>
-              <p>{review.body} </p>
-              Restaurant: <Link to={`/restaurant/${review.restaurantId}`}> {restaurants.find((r) => r.id === review.restaurantId)?.name} </Link> 
-          </li>
-        ))}
-      </ul>
+      {keyword ? (
+        <h2 className='page-header'>Search Results for "{keyword}"</h2>
+      ) : (
+        <h2 className='page-header'>Sorry, with this keyword, there were no results.</h2>
+      )}
+  
+      {keyword ? (
+        <>
+          <h3>Restaurants</h3>
+          <ul>
+            {restaurants.map((restaurant) => (
+              <li key={restaurant.id}>
+                <Link to={`/restaurant/${restaurant.id}`}>{restaurant.name} </Link> 
+                - {restaurant.address}
+              </li>
+            ))}
+          </ul>
+  
+          <h3>Reviews</h3>
+          <ul>
+            {reviews.map((review) => (
+              <li key={review.id}>
+                <h3>{review.title} </h3>
+                <p>{review.body} </p>
+                Restaurant: <Link to={`/restaurant/${review.restaurantId}`}> {restaurants.find((r) => r.id === review.restaurantId)?.name} </Link> 
+              </li>
+            ))}
+          </ul>
+        </>
+      ) : null}
     </div>
   );
+  
 }
 
 export default SearchComponent;

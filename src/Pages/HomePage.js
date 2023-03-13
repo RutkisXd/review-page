@@ -17,8 +17,8 @@ export default function HomePage() {
         <NewestRestaurants />
 
         <div className='view-all-restaurants-wrapper'>
-          <h3 className='view-all-header'>Would like to see more?</h3>
-          <p className='view-all-p'>Feel free to look at our all restaurnts list!</p>
+          <h3 className='page-header'>Would like to see more?</h3>
+          <p className='page-paragraph'>Feel free to look at our all restaurnts list!</p>
           <Link to='/restaurants'><button>View all</button></Link>
         </div>
 
