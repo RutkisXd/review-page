@@ -117,10 +117,10 @@ export default function RestaurantDetails() {
     ))}
   </ul>
 
-  <div>
+  <div className='review-submit'>
       {!editReviewId && <h3>Add a review</h3>}
       {editReviewId && <h3>Edit review</h3>}
-      <form onSubmit={editReviewId ? handleEditReviewSave : handleNewReviewSubmit}>
+      <form className='review-form' onSubmit={editReviewId ? handleEditReviewSave : handleNewReviewSubmit}>
         <label>
           Title:
           <input type="text" value={editReviewId ? editReviewTitle : newReviewTitle} onChange={editReviewId ? handleEditReviewTitleChange : handleNewReviewTitleChange} />

@@ -3,10 +3,17 @@
     text-decoration: none;
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
+    flex-direction: column;
     gap: 20px;
 }
 
 .review-card {
     width: 100%;
 }
+
+.save-review {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+  
