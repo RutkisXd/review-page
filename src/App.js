@@ -1,9 +1,10 @@
 import HomePage from './Pages/HomePage';
 import RestaurantDetailPage from './Pages/RestaurantDetailPage';
-import RestaurantsPage from './Pages/ResutantsPage';
+
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navigation from './Components/Navigation';
+import RestaurantList from './Pages/ResutantsPage';
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
         <Navigation />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/restaurants" element={<RestaurantsPage />} />
+          <Route path="/restaurants" element={<RestaurantList />} />
           <Route path="/restaurants/:restaurantId" element={<RestaurantDetailPage />} />
+          <Route path="/restaurants/:cityId?" component={<RestaurantList />} />
+
         </Routes>
       </div>
     </Router>

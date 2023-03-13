@@ -17,8 +17,8 @@
     {
       "id": 1,
       "name": "Ertlio Namas",
-      "cityId": 1,
-      "address": "Stiklių g. 6, Vilnius 01131"
+      "cityId": 3,
+      "address": "Stiklių g. 7, Vilnius 01131"
     },
     {
       "id": 2,
@@ -49,6 +49,13 @@
       "name": "Meat Lovers Pub",
       "cityId": 3,
       "address": "Turgaus g. 21, Klaipėda 91247"
+    },
+    {
+      "name": "bbbb",
+      "address": "bbbbb",
+      "cityId": 3,
+      "photo": "bbbbb",
+      "id": 7
     }
   ],
   "reviews": [
@@ -68,7 +75,7 @@
       "id": 3,
       "restaurantId": 3,
       "title": "Great food, even better cocktails",
-      "body": "Gastrobaras is a hidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
+      "body": "Gastrobaras is a dsdsdsdhidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
     },
     {
       "id": 4,
@@ -92,31 +99,13 @@
       "id": 7,
       "restaurantId": 3,
       "title": "Great food, even better cocktails",
-      "body": "Gastrobaras is a hidden gem in Kaunas. The food is amazing, but don't miss out on the creative cocktails!"
+      "body": "Gastrobaras is a hidden gem in dsdsdsdKaunas. The food is amazing, but don't miss out on the creative cocktails!"
     },
     {
       "id": 8,
       "restaurantId": 4,
       "title": "Burgers and craft beer",
       "body": "Soulbox is the perfect spot for a casual meal and drinks with friends. The burgers are fantastic and the craft beer selection is impressive."
-    },
-    {
-      "restaurantId": 4,
-      "title": "fdfdf",
-      "body": "dfdfdf",
-      "id": 9
-    },
-    {
-      "restaurantId": 4,
-      "title": "fdfdf",
-      "body": "dfdfdf",
-      "id": 10
-    },
-    {
-      "restaurantId": 3,
-      "title": "fdfdf",
-      "body": "dsdsd",
-      "id": 11
     },
     {
       "restaurantId": 4,
@@ -131,22 +120,10 @@
       "id": 13
     },
     {
-      "restaurantId": "3",
-      "title": "sdfsdfsfsdf",
-      "body": "sdfsdfdsfdsf",
-      "id": 16
-    },
-    {
       "restaurantId": "6",
       "title": "asdad",
       "body": "asdasdad",
       "id": 19
-    },
-    {
-      "restaurantId": "1",
-      "title": "bbbbbb",
-      "body": "bbbbbbbb",
-      "id": 21
     }
   ]
 }

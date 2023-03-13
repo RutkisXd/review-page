@@ -1,127 +1,147 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import WriteReview from '../Components/WriteReview';
-import { EditButton, DeleteButton } from '../Components/Buttons';
 
-export default function RestaurantDetailPage() {
+export default function RestaurantDetails() {
   const { restaurantId } = useParams();
-  const parsedRestaurantId = parseInt(restaurantId);
-  const [restaurant, setRestaurant] = useState(null);
+  const [restaurant, setRestaurant] = useState({});
   const [reviews, setReviews] = useState([]);
-
   const [newReviewTitle, setNewReviewTitle] = useState('');
   const [newReviewBody, setNewReviewBody] = useState('');
-  const [editReview, setEditReview] = useState(null);
+  const [editReviewId, setEditReviewId] = useState(null);
+  const [editReviewTitle, setEditReviewTitle] = useState('');
+  const [editReviewBody, setEditReviewBody] = useState('');
 
   useEffect(() => {
-    Promise.all([
-      fetch(`http://localhost:3000/restaurants/${parsedRestaurantId}`),
-      fetch(`http://localhost:3000/reviews?restaurantId=${parsedRestaurantId}`)
-    ])
-      .then(([restaurantResponse, reviewsResponse]) => Promise.all([restaurantResponse.json(), reviewsResponse.json()]))
-      .then(([restaurantData, reviewsData]) => {
-        setRestaurant(restaurantData);
-        setReviews(reviewsData);
-      })
-  }, [parsedRestaurantId]);
+    const fetchRestaurantDetails = () => {
+      fetch(`http://localhost:3000/restaurants/${restaurantId}`)
+        .then(response => response.json())
+        .then(data => setRestaurant(data))
+        .catch(error => console.error(error));
 
-  const handleSubmitReview = (e) => {
-    e.preventDefault();
-    if (editReview) {
-      const updatedReview = { ...editReview, title: newReviewTitle, body: newReviewBody };
-      fetch(`http://localhost:3000/reviews/${updatedReview.id}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(updatedReview)
-      })
-        .then(response => {
-          if (response.ok) {
-            setReviews(reviews.map(r => r.id === updatedReview.id ? updatedReview : r));
-            setNewReviewTitle('');
-            setNewReviewBody('');
-            setEditReview(null);
-          }
-        })
-    } else {
-      // Otherwise, we're creating a new review
-      const newReview = {
-        restaurantId: parsedRestaurantId,
-        title: newReviewTitle,
-        body: newReviewBody
-      };
-      fetch('http://localhost:3000/reviews', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newReview)
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-        })
-        .then(data => {
-          setReviews([...reviews, data]);
-          setNewReviewTitle('');
-          setNewReviewBody('');
-        })
-    }
+      fetch(`http://localhost:3000/reviews?restaurantId=${restaurantId}`)
+        .then(response => response.json())
+        .then(data => setReviews(data))
+        .catch(error => console.error(error));
+    };
+
+    fetchRestaurantDetails();
+  }, [restaurantId]);
+
+  const handleDeleteReview = (reviewId) => {
+    fetch(`http://localhost:3000/reviews/${reviewId}`, { method: 'DELETE' })
+      .then(() => setReviews(reviews.filter(review => review.id !== reviewId)))
+      .catch(error => console.error(error));
   };
 
-  const handleEditClick = (review) => {
-    setNewReviewTitle(review.title);
-    setNewReviewBody(review.body);
-    setEditReview(review);
+  const handleNewReviewTitleChange = (event) => {
+    setNewReviewTitle(event.target.value);
   };
-  
 
-  const handleDeleteReview = (review) => {
-    fetch(`http://localhost:3000/reviews/${review.id}`, {
-      method: 'DELETE',
+  const handleNewReviewBodyChange = (event) => {
+    setNewReviewBody(event.target.value);
+  };
+
+  const handleNewReviewSubmit = (event) => {
+    event.preventDefault();
+    const newReview = {
+      title: newReviewTitle,
+      body: newReviewBody,
+      restaurantId: restaurantId
+    };
+    fetch('http://localhost:3000/reviews', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newReview)
     })
-      .then(response => {
-        if (response.ok) {
-          setReviews(reviews.filter(r => r.id !== review.id));
-        }
-      })
+      .then(response => response.json())
+      .then(data => setReviews([...reviews, data]))
+      .catch(error => console.error(error));
+    setNewReviewTitle('');
+    setNewReviewBody('');
   };
 
+  const handleEditReviewTitleChange = (event) => {
+    setEditReviewTitle(event.target.value);
+  };
+
+  const handleEditReviewBodyChange = (event) => {
+    setEditReviewBody(event.target.value);
+  };
+
+  const handleEditReviewCancel = () => {
+    setEditReviewId(null);
+    setEditReviewTitle('');
+    setEditReviewBody('');
+  };
+
+  const handleEditReviewSave = (event) => {
+    event.preventDefault();
+    const editedReview = {
+      title: editReviewTitle,
+      body: editReviewBody
+    };
+    fetch(`http://localhost:3000/reviews/${editReviewId}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(editedReview)
+    })
+      .then(response => response.json())
+      .then(data => {
+        setReviews(reviews.map(review => {
+          if (review.id === editReviewId) {
+            return { ...review, ...data };
+          } else {
+            return review;
+          }
+        }));
+        handleEditReviewCancel();
+      })
+      .catch(error => console.error(error));
+  };
+
+  const handleEditReview = (reviewId, reviewTitle, reviewBody) => {
+    setEditReviewId(reviewId);
+    setEditReviewTitle(reviewTitle);
+    setEditReviewBody(reviewBody);
+  }
 
   return (
-    <>
-      <div>
-        {restaurant && (
-          <>
-            <h2>{restaurant.name}</h2>
-            <p>{restaurant.address}</p>
-          </>
-        )}
-        <WriteReview
-          title={newReviewTitle}
-          body={newReviewBody}
-          onSubmit={handleSubmitReview}
-        />
-        {reviews && reviews.length > 0 ? (
-          <div>
-            <h3>Restaurant reviews:</h3>
-            <ul>
-              {reviews.map(review => (
-                <li key={review.id}>
-                  <h3>{review.title}</h3>
-                  <p>{review.body}</p>
-                  <EditButton onClick={() => handleEditClick(review)}>Edit</EditButton>
-                  <DeleteButton onClick={() => handleDeleteReview(review)}>Delete</DeleteButton>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : (
-          <p>There are no reviews for this restaurant yet.</p>
-        )}
-      </div>
-    </>
-  );
-}  
+    <div>
+    <h2>{restaurant.name}</h2>
+    <p>{restaurant.address}</p>
+    <img src={restaurant.photo} alt={restaurant.name} />
+    <h3>Reviews</h3>
+  <ul>
+    {reviews.map(review => (
+      <li key={review.id}>
+        <strong>{review.title}</strong>
+        <p>{review.body}</p>
+        <button onClick={() => handleDeleteReview(review.id)}>Delete</button>
+        <button onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+      </li>
+    ))}
+  </ul>
+
+  <div>
+      {!editReviewId && <h3>Add a review</h3>}
+      {editReviewId && <h3>Edit review</h3>}
+      <form onSubmit={editReviewId ? handleEditReviewSave : handleNewReviewSubmit}>
+        <label>
+          Title:
+          <input type="text" value={editReviewId ? editReviewTitle : newReviewTitle} onChange={editReviewId ? handleEditReviewTitleChange : handleNewReviewTitleChange} />
+        </label>
+        <br />
+        <label>
+          Body:
+          <textarea value={editReviewId ? editReviewBody : newReviewBody} onChange={editReviewId ? handleEditReviewBodyChange : handleNewReviewBodyChange} />
+        </label>
+        <br />
+        <button type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
+        {editReviewId && <button type="button" onClick={handleEditReviewCancel}>Cancel</button>}
+      </form>
+    </div>
+    </div>
+
+  )
+}
+

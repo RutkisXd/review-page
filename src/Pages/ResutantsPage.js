@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 
-function RestaurantList() {
+export default function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
   const [cities, setCities] = useState([]);
   const [newRestaurantName, setNewRestaurantName] = useState('');
@@ -12,15 +12,24 @@ function RestaurantList() {
   const [editingRestaurantId, setEditingRestaurantId] = useState(null);
 
   const { cityId } = useParams();
+  const location = useLocation();
 
   useEffect(() => {
-    fetch('http://localhost:3000/restaurants')
+    let url = 'http://localhost:3000/restaurants';
+    if (location.search) {
+      const queryParams = new URLSearchParams(location.search);
+      const cityIdParam = queryParams.get('cityId');
+      if (cityIdParam) {
+        url += `?cityId=${cityIdParam}`;
+      }
+    }
+    fetch(url)
       .then(response => response.json())
       .then(data => setRestaurants(data));
     fetch('http://localhost:3000/cities')
       .then(response => response.json())
       .then(data => setCities(data));
-  }, []);
+  }, [location.search]);
 
   function getCityName(cityId) {
     const city = cities.find(city => city.id === parseInt(cityId));
@@ -81,11 +90,11 @@ function RestaurantList() {
     setNewRestaurantPhoto(restaurant.photo);
   }
 
-  const isEditing = editingRestaurantId !== null;
-
   return (
     <div>
       <h3>{cityId ? `Restaurants in ${getCityName(cityId)}` : 'All Restaurants'}</h3>
+
+  
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -107,10 +116,13 @@ function RestaurantList() {
           City:
           <select
             value={newRestaurantCityId}
-            onChange={(event) => setNewRestaurantCityId(event.target.value)}>
+            onChange={(event) => setNewRestaurantCityId(event.target.value)}
+          >
             <option value="">Select a city</option>
-            {cities.map(city => (
-              <option key={city.id} value={city.id}>{city.name}</option>
+            {cities.map((city) => (
+              <option key={city.id} value={city.id}>
+                {city.name}
+              </option>
             ))}
           </select>
         </label>
@@ -122,11 +134,13 @@ function RestaurantList() {
             onChange={(event) => setNewRestaurantPhoto(event.target.value)}
           />
         </label>
-        <button type="submit">{editingRestaurantId ? 'Save Restaurant' : 'Add Restaurant'}</button>
+        <button type="submit">
+          {editingRestaurantId ? 'Save Restaurant' : 'Add Restaurant'}
+        </button>
       </form>
   
       <ul>
-        {restaurants.map(restaurant => (
+        {restaurants.map((restaurant) => (
           <li key={restaurant.id}>
             <Link to={`/restaurants/${restaurant.id}`}>
               <img src={restaurant.photo} alt={`Photo of ${restaurant.name}`} />
@@ -140,6 +154,5 @@ function RestaurantList() {
       </ul>
     </div>
   );
-}
 
-export default RestaurantList()
+        }
