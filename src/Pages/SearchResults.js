@@ -23,20 +23,22 @@ function SearchComponent() {
 
   return (
     <div>
-      {keyword ? (
-        <h2 className='page-header'>Search Results for "{keyword}"</h2>
-      ) : (
-        <h2 className='page-header'>Sorry, with this keyword, there were no results.</h2>
+      {restaurants.length === 0 && reviews.length === 0 && (
+        <h2 className='page-header'>
+          Sorry, with this keyword, there were no results.
+        </h2>
       )}
 
-      {keyword ? (
+      {restaurants.length > 0 && (
         <>
+          <h2 className='page-header'>Search Results for "{keyword}"</h2>
           <RestaurantsList restaurants={restaurants} />
           <ReviewsList reviews={reviews} restaurants={restaurants} />
         </>
-      ) : null}
+      )}
     </div>
   );
 }
 
-export default SearchComponent
+export default SearchComponent;
+

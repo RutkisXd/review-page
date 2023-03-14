@@ -11,7 +11,9 @@ export default function HomePage() {
   return (
     <div className='content-wrapper'>
       
-        <CitySelector></CitySelector>
+        <div className='city-selector'>
+          <CitySelector></CitySelector>
+        </div>
         <div className='cta-wrapper'>
           <CitiesList />
           <RatedRestaurants />
@@ -19,12 +21,13 @@ export default function HomePage() {
         </div>
 
 
-        <div className='view-all-restaurants-wrapper'>
-          <h3 className='page-header'>Would like to see more?</h3>
-          <p className='page-paragraph'>Feel free to look at our all restaurnts list!</p>
-          <Link to='/restaurants'><button className='btn'>View all</button></Link>
+        <div className='view-all-restaurants'>
+          <div className='view-all-restaurants-wrapper'>
+            <h3 className='page-header'>Would like to see more?</h3>
+            <p className='page-paragraph'>Feel free to look at our all restaurnts list!</p>
+            <Link to='/restaurants'><button className='btn'>View all</button></Link>
+          </div>
         </div>
-
     </div>
   );
 }
