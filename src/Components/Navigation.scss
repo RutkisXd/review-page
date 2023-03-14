@@ -11,6 +11,12 @@
     color: black;
 }
 
+.links-wrapper li a:active {
+    color: green;
+    border: 1px solid green($color: #000000);
+}
+  
+
 .navigation-wrapper {
     display: flex;
     justify-content: space-between;
@@ -27,3 +33,13 @@
     gap: 10px;
     align-items: center;
 }
+
+// Mobile devices (portrait):
+@media only screen and (max-width: 480px) {
+    .search-input{
+        display: none;
+    }
+}
+
+//Tablets and small desktops:
+@media only screen and (min-width: 768px) and (max-width: 991px) {}

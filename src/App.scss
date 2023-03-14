@@ -26,3 +26,9 @@ body {
   font-weight: 400;
 }
 
+.buttons-together {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+

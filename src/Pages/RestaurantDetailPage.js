@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '../Pages/RestaurantDetailPage.scss'
 
 export default function RestaurantDetails() {
   const { restaurantId } = useParams();
@@ -109,10 +110,15 @@ export default function RestaurantDetails() {
   <ul>
     {reviews.map(review => (
       <li key={review.id}>
-        <strong>{review.title}</strong>
-        <p>{review.body}</p>
-        <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete</button>
-        <button className='btn' onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+        <div className='card-wrapper'>
+          <strong>{review.title}</strong>
+          <p>{review.body}</p>
+          <div className='buttons-together'>
+            <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete</button>
+            <button className='btn' onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+          </div>
+
+        </div>
       </li>
     ))}
   </ul>
@@ -131,8 +137,11 @@ export default function RestaurantDetails() {
           <textarea value={editReviewId ? editReviewBody : newReviewBody} onChange={editReviewId ? handleEditReviewBodyChange : handleNewReviewBodyChange} />
         </label>
         <br />
-        <button className='btn' type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
-        {editReviewId && <button className='btn' type="button" onClick={handleEditReviewCancel}>Cancel</button>}
+        <div className='buttons-together'>
+          <button className='btn' type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
+          {editReviewId && <button className='btn' type="button" onClick={handleEditReviewCancel}>Cancel</button>}
+        </div>
+
       </form>
     </div>
     </div>

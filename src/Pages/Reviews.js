@@ -85,11 +85,16 @@ export default function ReviewsPage() {
                 </>
                 ) : (
                 <div className='review-card'>
+                    <div className='review-card-wrapper'>
                     <p>Title: {review.title}</p>
                     <p>Body: {review.body}</p>
                     <p>Restaurant: <Link to={`/restaurants/${review.restaurantId}`}>{review.restaurantName}</Link></p>
-                    <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
-                    <button className='btn' onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
+                    <div className='buttons-together'>
+                        <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
+                        <button className='btn' onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
+                    </div>
+
+                    </div>
                 </div>
                 )}
             </li>

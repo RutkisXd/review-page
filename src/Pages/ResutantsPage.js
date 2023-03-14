@@ -94,8 +94,12 @@ function RestaurantList() {
               <h3>{restaurant.name}</h3>
               <p>{restaurant.address}</p>
             </Link>
-            <button className='btn' onClick={() => handleDelete(restaurant.id)}>Delete</button>
-            <button className='btn' onClick={() => handleEdit(restaurant.id)}>Edit</button>
+
+            <div className='buttons-together'>
+              <button className='btn' onClick={() => handleDelete(restaurant.id)}>Delete</button>
+              <button className='btn' onClick={() => handleEdit(restaurant.id)}>Edit</button>
+            </div>
+
           </li>
         ))}
       </ul>
