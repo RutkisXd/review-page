@@ -1,5 +1,8 @@
+@import '../App.scss';
+
+
 .search-by-category {
-    background-color: blue;
+    background-color: $green;
     padding: 20px;
     border-radius: 15px;
     display: flex;
@@ -7,7 +10,9 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .cta-wrapper {
@@ -15,6 +20,8 @@
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     gap: 10px;
     place-items: center; 
+    align-items: start;
+    margin-bottom: 30px;
 }
 
 .view-all-restaurants-wrapper {
@@ -22,21 +29,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: $green;
     padding: 20px;
     border-radius: 15px;
-    width: 50%;
+    width: 80%;
 }
 
 .btn {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
+    background-color: $green;
+    border: 1px solid $green;
+    color: $white;
     padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 10px;
+}
+
+.btn:hover{
+    background-color: $white;
+    color: $green;
 }
 
 .select-category-wrapper {
@@ -53,12 +66,73 @@ select {
     background-color: #f1f1f1;
 }
 
+li {
+    list-style: none;
+    text-decoration: none;
+}
+
 input[type=text] {
     width: 100%;
     padding: 12px 28px;
     margin: 8px 0;
     box-sizing: border-box;
-  }
+}
+
+.page-header{
+    text-align: center; 
+}
+
+.page-paragraph{
+    text-align: center;
+}
+
+.view-all-restaurants {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.city-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// Mobile devices (portrait):
+@media only screen and (max-width: 480px) {
+    .cta-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-by-category{
+        width: 100%;
+    }
+
+    .view-all-restaurants-wrapper{
+        width: 100%;
+    }
+    
+}
+
+//Tablets and small desktops:
+@media only screen and (min-width: 481px) and (max-width: 791px) {
+    .cta-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .search-by-category{
+        width: 90%;
+    }
+
+    .view-all-restaurants-wrapper{
+        width: 90%;
+    }
+}
 
 
 

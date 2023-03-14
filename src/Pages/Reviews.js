@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Container from '../Components/Container/Container';
 import '../Pages/Reviews.scss'
 
 export default function ReviewsPage() {
@@ -69,32 +70,40 @@ export default function ReviewsPage() {
     }
 
     return (
-        <div className='reviews-wrapper'>
-        <h2>All Reviews</h2>
-        <ul className='reviews-list'>
-            {reviews.map(review => (
-            <li className='review-item' key={review.id}>
-                {editReviewId === review.id ? (
-                <>
-                <div className='save-review'>
-                    <p>Title: <input type="text" name="title" value={editedReview.title} onChange={handleChange} /></p>
-                    <p>Body: <input type="text" name="body" value={editedReview.body} onChange={handleChange} /></p>
-                    <button className='btn' onClick={() => handleSaveReview(review.id)}>Save Review</button>
-                </div>
+        <Container>
+            <div className='reviews-wrapper'>
+            <h2>All Reviews</h2>
+            <ul className='reviews-list'>
+                {reviews.map(review => (
+                <li className='review-item' key={review.id}>
+                    {editReviewId === review.id ? (
+                    <>
+                    <div className='save-review'>
+                        <p>Title: <input type="text" name="title" value={editedReview.title} onChange={handleChange} /></p>
+                        <p>Body: <input type="text" name="body" value={editedReview.body} onChange={handleChange} /></p>
+                        <button className='btn' onClick={() => handleSaveReview(review.id)}>Save Review</button>
+                    </div>
 
-                </>
-                ) : (
-                <div className='review-card'>
-                    <p>Title: {review.title}</p>
-                    <p>Body: {review.body}</p>
-                    <p>Restaurant: <Link to={`/restaurants/${review.restaurantId}`}>{review.restaurantName}</Link></p>
-                    <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
-                    <button className='btn' onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
-                </div>
-                )}
-            </li>
-            ))}
-        </ul>
-        </div>
+                    </>
+                    ) : (
+                    <div className='review-card'>
+                        <div className='review-card-wrapper'>
+                        <p>Title: {review.title}</p>
+                        <p>Body: {review.body}</p>
+                        <p>Restaurant: <Link to={`/restaurants/${review.restaurantId}`}>{review.restaurantName}</Link></p>
+                        <div className='buttons-together'>
+                            <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete Review</button>
+                            <button className='btn' onClick={() => handleEditReview(review.id, { title: review.title, body: review.body })}>Edit Review</button>
+                        </div>
+
+                        </div>
+                    </div>
+                    )}
+                </li>
+                ))}
+            </ul>
+            </div>
+        </Container>
+
     );
 }

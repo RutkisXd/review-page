@@ -1,29 +1,51 @@
+@import '../App.scss';
+
 .links-wrapper {
     list-style: none;
-    text-decoration: none;
     display: flex;
     flex-direction: row;
     gap: 15px;
-}
-
-.links-wrapper a {
-    text-decoration: none;
-    color: black;
-}
-
-.navigation-wrapper {
+  
+    li {
+      a {
+        text-decoration: none;
+        color: black;
+  
+        &:active,
+        &.active {
+          color: $green;
+          border-bottom: 3px solid $green;
+        }
+      }
+    }
+  }
+  
+  .navigation-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 15px;
     padding-top: 15px;
-    padding-left: 10px;
-    padding-right: 10px
-}
-
-.search-input {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  
+  .search-input {
     display: flex;
     flex-direction: row;
     gap: 10px;
     align-items: center;
-}
+  }
+  
+  // Mobile devices (portrait):
+  @media only screen and (max-width: 480px) {
+    .search-input {
+      display: none;
+    }
+  }
+  
+  //Tablets and small desktops:
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    /* add tablet styles here */
+  }
+  

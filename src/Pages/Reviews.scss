@@ -5,15 +5,37 @@
     flex-wrap: wrap;
     flex-direction: column;
     gap: 20px;
-}
-
-.review-card {
+    padding-left: 0px;
+  
+    .review-item {
+      width: 100%;
+    }
+  }
+  
+  .review-card {
     width: 100%;
-}
-
-.save-review {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    padding: 15px;
+  
+    &:hover {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    }
+  
+    .review-card-wrapper {
+      padding: 2px 16px;
+    }
+  
+    .buttons-together {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+    }
+  }
+  
+  .save-review {
     display: flex;
     flex-direction: column;
     width: 100%;
-}
+  }
   

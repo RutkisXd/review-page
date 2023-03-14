@@ -1,15 +1,11 @@
-import React from "react";
-import { useEffect } from "react";   
-import { useState } from "react"; 
-import { useParams } from "react-router-dom";
-import RestaurantsList from "../Components/RestaurantsList";
-import ReviewsList from "../Components/ReviewsList";
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import Container from '../Components/Container/Container';
 
-
-function SearchComponent() {
+function SearchResults() {
+  const { keyword } = useParams();
   const [restaurants, setRestaurants] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const { keyword } = useParams();
 
   useEffect(() => {
     fetch(`http://localhost:3000/restaurants?q=${keyword}`)
@@ -21,22 +17,54 @@ function SearchComponent() {
       .then((data) => setReviews(data));
   }, [keyword]);
 
-  return (
-    <div>
-      {keyword ? (
-        <h2 className='page-header'>Search Results for "{keyword}"</h2>
-      ) : (
-        <h2 className='page-header'>Sorry, with this keyword, there were no results.</h2>
-      )}
+  const restaurantsResults =
+    restaurants.length === 0 ? (
+      <p>Sorry, no results.</p>
+    ) : (
+      restaurants.map((restaurant) => (
+        <div key={restaurant.id}>
+          <h3>{restaurant.name}</h3>
+          <p>{restaurant.address}</p>
+          <p>
+            <Link to={`/restaurants/${restaurant.id}`}>Go to restaurant</Link>
+          </p>
+        </div>
+      ))
+    );
 
-      {keyword ? (
-        <>
-          <RestaurantsList restaurants={restaurants} />
-          <ReviewsList reviews={reviews} restaurants={restaurants} />
-        </>
-      ) : null}
-    </div>
+  const reviewsResults =
+    reviews.length === 0 ? (
+      <p>Sorry, no results.</p>
+    ) : (
+      reviews.map((review) => (
+        <div key={review.id}>
+          <h3>{review.title}</h3>
+          <p>{review.body}</p>
+          <p>
+            <Link to={`/restaurants/${review.restaurantId}`}>
+              {review.restaurantName}
+            </Link>
+          </p>
+        </div>
+      ))
+    );
+
+  return (
+    <Container>
+      <h2>Search results:</h2>
+      <div>
+        <h3>Restaurants results:</h3>
+        {restaurantsResults}
+
+        <h3>Reviews results:</h3>
+        {reviewsResults}
+      </div>
+    </Container>
   );
 }
 
-export default SearchComponent
+export default SearchResults;
+
+
+
+
