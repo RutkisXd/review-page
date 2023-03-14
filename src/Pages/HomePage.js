@@ -1,11 +1,11 @@
 import React from 'react';
-import CitySelector from '../../Components/SearchByCategory';
-import CitiesList from '../../Components/PopularCities';
-import RatedRestaurants from '../../Components/TopRatedRestaurants';
-import NewestRestaurants from '../../Components/NewestRestaurants';
+import CitySelector from '../Components/SearchByCategory';
+import CitiesList from '../Components/PopularCities';
+import RatedRestaurants from '../Components/TopRatedRestaurants';
+import NewestRestaurants from '../Components/NewestRestaurants';
 import { Link } from 'react-router-dom';
 import '../Pages/HomePage.scss'
-import Container from '../../Components/Container/Container';
+import Container from '../Components/Container/Container';
 
 
 export default function HomePage() {

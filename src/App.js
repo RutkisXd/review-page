@@ -1,10 +1,10 @@
-import HomePage from './Pages/HomePage/HomePage';
-import RestaurantDetailPage from './Pages/RestaurantDetailPage/RestaurantDetailPage';
+import HomePage from './Pages/HomePage';
+import RestaurantDetailPage from './Pages/RestaurantDetailPage';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navigation from './Components/Navigation/Navigation';
+import Navigation from './Components/Navigation';
 import RestaurantList from './Pages/ResutantsPage';
-import ReviewsPage from './Pages/Reviews/Reviews';
+import ReviewsPage from './Pages/Reviews';
 import SearchResults from './Pages/SearchResults';
 import './App.scss'
 
