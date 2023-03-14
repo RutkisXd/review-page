@@ -43,4 +43,44 @@ input[type=text], select, textarea {
 
   .restaurant-item {
     width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 20px;
   }
+
+  .restaurant-item:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  // Mobile devices (portrait):
+@media only screen and (max-width: 480px) {
+  .restaurants-list {
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.restaurant-submit{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.restaurant-item {
+  width: 100%;
+}
+
+
+  
+}
+
+//Tablets and small desktops:
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .restaurant-item {
+    width: 100%;
+  }
+}
