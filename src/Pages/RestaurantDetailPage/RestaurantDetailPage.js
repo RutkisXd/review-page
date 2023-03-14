@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Container from '../Components/Container/Container';
+import Container from '../../Components/Container/Container';
 import '../Pages/RestaurantDetailPage.scss'
 
 export default function RestaurantDetails() {
