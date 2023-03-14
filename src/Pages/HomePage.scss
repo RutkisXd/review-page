@@ -20,7 +20,7 @@
     grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
     gap: 10px;
     place-items: center; 
-    align-items: start;
+    align-items: stretch;
     margin-bottom: 30px;
 }
 
