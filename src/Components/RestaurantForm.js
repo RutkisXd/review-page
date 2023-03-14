@@ -5,13 +5,13 @@ export default function RestaurantForm({ cities, onSubmit, initialData }) {
   const [address, setAddress] = useState(initialData?.address || '');
   const [cityId, setCityId] = useState(initialData?.cityId || '');
   const [photo, setPhoto] = useState(initialData?.photo || '');
-  
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = { name, address, cityId, photo };
     onSubmit(data);
   };
-  
+
   return (
     <form className='restaurant-submit' onSubmit={handleSubmit}>
       <label>

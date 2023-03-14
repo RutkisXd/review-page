@@ -103,47 +103,52 @@ export default function RestaurantDetails() {
 
   return (
     <div>
-    <h2>{restaurant.name}</h2>
-    <p>{restaurant.address}</p>
-    <img src={restaurant.photo} alt={restaurant.name} />
-    <h3>Reviews</h3>
-  <ul>
-    {reviews.map(review => (
-      <li key={review.id}>
-        <div className='card-wrapper'>
-          <strong>{review.title}</strong>
-          <p>{review.body}</p>
+      <h2>{restaurant.name}</h2>
+      <p>{restaurant.address}</p>
+      <img src={restaurant.photo} alt={restaurant.name} />
+      <h3>Reviews</h3>
+      
+      {reviews.length === 0 ? (
+        <p>Currently, there are no reviews. Be the first one!</p>
+      ) : (
+
+      <ul className='review-list'>
+        {reviews.map(review => (
+          <li className='review-item' key={review.id}>
+            <div className='card-wrapper'>
+              <strong>{review.title}</strong>
+              <p>{review.body}</p>
+              <div className='buttons-together'>
+                <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete</button>
+                <button className='btn' onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+              </div>
+
+            </div>
+          </li>
+        ))}
+      </ul>)}
+
+    <div className='review-submit'>
+        {!editReviewId && <h3>Add a review</h3>}
+        {editReviewId && <h3>Edit review</h3>}
+        <form className='review-form' onSubmit={editReviewId ? handleEditReviewSave : handleNewReviewSubmit}>
+          <label>
+            Title:
+            <input type="text" value={editReviewId ? editReviewTitle : newReviewTitle} onChange={editReviewId ? handleEditReviewTitleChange : handleNewReviewTitleChange} />
+          </label>
+          <br />
+          <label>
+            Body:
+            <textarea value={editReviewId ? editReviewBody : newReviewBody} onChange={editReviewId ? handleEditReviewBodyChange : handleNewReviewBodyChange} />
+          </label>
+          <br />
           <div className='buttons-together'>
-            <button className='btn' onClick={() => handleDeleteReview(review.id)}>Delete</button>
-            <button className='btn' onClick={() => handleEditReview(review.id, review.title, review.body)}>Edit</button>
+            <button className='btn' type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
+            {editReviewId && <button className='btn' type="button" onClick={handleEditReviewCancel}>Cancel</button>}
           </div>
 
-        </div>
-      </li>
-    ))}
-  </ul>
-
-  <div className='review-submit'>
-      {!editReviewId && <h3>Add a review</h3>}
-      {editReviewId && <h3>Edit review</h3>}
-      <form className='review-form' onSubmit={editReviewId ? handleEditReviewSave : handleNewReviewSubmit}>
-        <label>
-          Title:
-          <input type="text" value={editReviewId ? editReviewTitle : newReviewTitle} onChange={editReviewId ? handleEditReviewTitleChange : handleNewReviewTitleChange} />
-        </label>
-        <br />
-        <label>
-          Body:
-          <textarea value={editReviewId ? editReviewBody : newReviewBody} onChange={editReviewId ? handleEditReviewBodyChange : handleNewReviewBodyChange} />
-        </label>
-        <br />
-        <div className='buttons-together'>
-          <button className='btn' type="submit">{editReviewId ? 'Save review' : 'Submit'}</button>
-          {editReviewId && <button className='btn' type="button" onClick={handleEditReviewCancel}>Cancel</button>}
-        </div>
-
-      </form>
-    </div>
+        </form>
+      </div>
     </div>
 
   )

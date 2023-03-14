@@ -74,6 +74,12 @@ input[type=text], select, textarea {
   width: 100%;
 }
 
+.restaurant-image {
+  width: 50%;
+  height: auto;
+  object-fit: cover;
+}
+
 
   
 }

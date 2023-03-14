@@ -4,7 +4,7 @@ import { useParams, useLocation } from 'react-router-dom';
 import RestaurantForm from '../Components/RestaurantForm';
 import '../Pages/RestaurantsPage.scss'
 
-function RestaurantList() {
+export default function RestaurantList() {
   const [restaurants, setRestaurants] = useState([]);
   const [cities, setCities] = useState([]);
   const [editingRestaurantId, setEditingRestaurantId] = useState(null);
@@ -76,16 +76,16 @@ function RestaurantList() {
     }
   }
 
+  console.log(cityId)
+
   return (
     <div className='restaurants-content-wrapper'>
       <h3>{cityId ? `Restaurants in ${getCityName(cityId)}` : 'All Restaurants'}</h3>
-  
       <RestaurantForm
         cities={cities}
         onSubmit={handleSave}
         initialData={editingRestaurantId ? restaurants.find(restaurant => restaurant.id === editingRestaurantId) : null}
       />
-  
       <ul className='restaurants-list'>
         {restaurants.map((restaurant) => (
           <li className='restaurant-item' key={restaurant.id}>
@@ -94,17 +94,14 @@ function RestaurantList() {
               <h3>{restaurant.name}</h3>
               <p>{restaurant.address}</p>
             </Link>
-
             <div className='buttons-together'>
               <button className='btn' onClick={() => handleDelete(restaurant.id)}>Delete</button>
-              <button className='btn' onClick={() => handleEdit(restaurant.id)}>Edit</button>
+              <button className='btn' onClick={() => handleEdit(restaurant)}>Edit</button>
             </div>
-
           </li>
         ))}
       </ul>
     </div>
   );
-}
-
-export default RestaurantList
+  
+}  

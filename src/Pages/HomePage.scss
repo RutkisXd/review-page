@@ -1,5 +1,8 @@
+@import '../App.scss';
+
+
 .search-by-category {
-    background-color: blue;
+    background-color: $green;
     padding: 20px;
     border-radius: 15px;
     display: flex;
@@ -8,6 +11,8 @@
     align-items: center;
     justify-content: center;
     width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .cta-wrapper {
@@ -16,6 +21,7 @@
     gap: 10px;
     place-items: center; 
     align-items: start;
+    margin-bottom: 30px;
 }
 
 .view-all-restaurants-wrapper {
@@ -23,14 +29,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: $green;
     padding: 20px;
     border-radius: 15px;
     width: 50%;
 }
 
 .btn {
-    background-color: #4CAF50; /* Green */
+    background-color: $green;
     border: none;
     color: white;
     padding: 12px 28px;
@@ -38,6 +44,7 @@
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    border-radius: 10px;
 }
 
 .select-category-wrapper {
@@ -52,6 +59,11 @@ select {
     border: none;
     border-radius: 4px;
     background-color: #f1f1f1;
+}
+
+li {
+    list-style: none;
+    text-decoration: none;
 }
 
 input[type=text] {

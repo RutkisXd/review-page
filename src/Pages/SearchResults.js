@@ -29,7 +29,7 @@ function SearchComponent() {
         </h2>
       )}
 
-      {restaurants.length > 0 && (
+      {restaurants.length > 0 &&  reviews.length > 0 && (
         <>
           <h2 className='page-header'>Search Results for "{keyword}"</h2>
           <RestaurantsList restaurants={restaurants} />

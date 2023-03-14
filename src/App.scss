@@ -1,7 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,100,900);
 
 //colors
-$red: #E1332D;
+$green: #4CAF50;
 $white: #fff;
 
 //base styles
@@ -32,3 +32,9 @@ body {
   gap: 10px;
 }
 
+.navigation-wrapper{
+  background-color: $white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
