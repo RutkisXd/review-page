@@ -3,20 +3,32 @@
     flex-direction: row;
     align-items: center;
     gap: 10px;
-}
-
-.review-list {
+  
+    // Mobile devices (portrait):
+    @media only screen and (max-width: 480px) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  
+  .review-list {
     display: flex;
     flex-direction: column;
     gap: 25px;
-}
+    padding-left: 0px;
+  }
 
-// Mobile devices (portrait):
-@media only screen and (max-width: 480px) {
-    .review-form {
-        flex-direction: column;
+  img {
+    width: 30%;
+
+    // Mobile devices (portrait):
+    @media only screen and (max-width: 480px) {
+      width: 100%;
     }
-}
+  }
+  
+  // Tablets and small desktops:
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
 
-//Tablets and small desktops:
-@media only screen and (min-width: 768px) and (max-width: 991px) {}
+  }
+  
